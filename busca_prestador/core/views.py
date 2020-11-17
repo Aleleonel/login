@@ -1,9 +1,11 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_protect
 
 
+@login_required(login_url='/login/')
 def home(request):
     template_name = 'core/home.html'
     return render(request, template_name)
