@@ -10,11 +10,6 @@ import pycep_correios
 from pycep_correios.excecoes import ExcecaoPyCEPCorreios
 
 
-def home(request):
-    template_name = 'buscaprest/home.html'
-    return render(request, template_name)
-
-
 def error(request):
     template_name = 'buscaprest/error.html'
     return render(request, template_name)
