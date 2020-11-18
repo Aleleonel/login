@@ -8,7 +8,9 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'core:home'  %}">Home <span class="sr-only">(current)</span></a>
+
             </li>
+
             <li class="nav-item">
                     <a class="nav-link" href="{% url 'buscaprest:buscaprest_lista' %}">Oficinas</a>
             </li>
@@ -33,6 +35,9 @@
                     <a class="dropdown-item" href="#">Oficinas</a>
                     <a class="dropdown-item" href="#">Rastreadores</a>
                 </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'core:logout_user'  %}">sair <span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
