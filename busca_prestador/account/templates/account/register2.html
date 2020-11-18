@@ -1,0 +1,41 @@
+{% extends "account/base_account.html" %}
+
+{% block content %}
+
+<body>
+	 <div class="jumbotron">
+      <div class="container">
+          <form classe="form-signin" action="{% url 'account' %}" method="POST">
+                {% csrf_token %}
+                <h2 class="form-signin-heading">
+                    Crie seu usuário
+                </h2>
+                <input id="id_email" name="email" type="text"
+                       class="form-control" placeholder="Email *"
+                       requerid>
+
+                <input id="id_nome" name="nome" type="text"
+                       class="form-control" placeholder="Nome *"
+                       requerid>
+
+                <input id="id_senha" name="senha" type="password"
+                       class="form-control" placeholder="Senha *"
+                       requerid>
+
+                <input id="id_telefone" name="telefone" type="text"
+                       class="form-control" placeholder="Telefone">
+
+                <input id="id_nome_empresa" name="nome_empresa" type="text"
+                       class="form-control" placeholder="Empresa">
+                <hr/>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    Registrar
+                </button>
+    </form>
+
+      </div>
+  </div>
+</body>
+
+
+{% endblock %}
