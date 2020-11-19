@@ -20,7 +20,7 @@ def lista_search(request):
 
     elif search2:
 
-        objects_list = Veiculos.objects.filter(renavam__icontains=search2)
+        objects_list = Veiculos.objects.filter(emei__icontains=search2)
         context = {
             'object_list': objects_list
         }

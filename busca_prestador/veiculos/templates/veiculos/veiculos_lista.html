@@ -41,7 +41,7 @@
                            aria-owns="algolia-autocomplete-listbox-0"
                            dir="auto" style="position: relative;
                            vertical-align: top;">
-                         <button type="submit" class="btn btn-primary">Nr.Renavam</button>
+                         <button type="submit" class="btn btn-primary">Emei</button>
                      </form>
                 </li>
 
@@ -55,11 +55,8 @@
                         <tr>
                             <th>Marca/Modelo</th>
                             <th>Placa</th>
-                            <th>Chassi</th>
-                            <th>Ano Fab.</th>
                             <th>Modelo</th>
-                            <th>Renavam</th>
-                            <th>Cor</th>
+                            <th>EMEI</th>
                             <th>Nr. Rastreador</th>
                         </tr>
                         </thead>
@@ -70,11 +67,8 @@
                                 <td>
                                     <a href="{{ object.get_absolute_url }}">{{object.placa}}</a>
                                 </td>
-                                <td>{{object.chassi}}</td>
-                                <td>{{object.ano_fab}}</td>
                                 <td>{{object.modelo}}</td>
-                                <td>{{object.renavam}}</td>
-                                <td>{{object.cor}}</td>
+                                <td>{{object.rastreador.emei}}</td>
                                 <td>{{object.rastreador}}</td>
                             </tr>
                         {% endfor %}

@@ -46,7 +46,10 @@
                         <tr>
                             <th>Nr. Ratreador</th>
                             <th>Marca/Modelo</th>
-                            <th>Uso</th>
+                            <th>EMEI</th>
+                            <th>Nr. Linha</th>
+                            <th>Provedor</th>
+                            <th>Instaldo</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -56,7 +59,10 @@
                                     <a href="{{ object.get_absolute_url }}">{{object.nr_rastreador}}</a>
                                 </td>
                                 <td>{{object.marca}}</td>
-                                <td>{{object.uso}}</td>
+                                <td>{{object.emei}}</td>
+                                <td>{{object.nr_linha}}</td>
+                                <td>{{object.provedor}}</td>
+                                <td>{{object.instalado}}</td>
                             </tr>
                         {% endfor %}
                         </tbody>

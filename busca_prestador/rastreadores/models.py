@@ -3,9 +3,17 @@ from django.urls import reverse_lazy
 
 
 class Rastreador(models.Model):
+    INSTADO_CHOICE = (
+        ('SIM', 'SIM'),
+        ('NÃO', 'NÃO'),
+
+    )
     nr_rastreador = models.CharField(max_length=255)
     marca = models.CharField(max_length=25, null=True, blank=True)
-    uso = models.BooleanField(default=False)
+    emei = models.CharField(max_length=15, null=True, blank=True)
+    nr_linha = models.CharField(max_length=13, null=True, blank=True)
+    provedor = models.CharField(max_length=6, null=True, blank=True)
+    instalado = models.CharField(max_length=3, choices=INSTADO_CHOICE,null=True, blank=True)
 
     class Meta:
         db_table = 'rastreador'
