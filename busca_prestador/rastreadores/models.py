@@ -13,7 +13,8 @@ class Rastreador(models.Model):
     emei = models.CharField(max_length=15, null=True, blank=True)
     nr_linha = models.CharField(max_length=13, null=True, blank=True)
     provedor = models.CharField(max_length=6, null=True, blank=True)
-    instalado = models.CharField(max_length=3, choices=INSTADO_CHOICE,null=True, blank=True)
+    instalado = models.CharField(max_length=3, choices=INSTADO_CHOICE, default=INSTADO_CHOICE[0][0], null=True, blank=True)
+
 
     class Meta:
         db_table = 'rastreador'

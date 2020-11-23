@@ -8,14 +8,24 @@ from .models import Rastreador
 def lista_search(request):
     template_name = 'rastreadores/rastreadores_lista.html'
     search = request.GET.get('search')
+    search2 = request.GET.get('search2')
 
     if search:
 
-        objects_list = Rastreador.objects.filter(nr_rastreador__icontains=search)
+        objects_list = Rastreador.objects.filter(emei__icontains=search)
         context = {
             'object_list': objects_list
         }
         return render(request, template_name, context)
+
+    elif search2:
+        objects_list = Rastreador.objects.filter(instalado__icontains=search2)
+
+        context = {
+            'object_list': objects_list
+        }
+        return render(request, template_name, context)
+
     else:
         objects_list = Rastreador.objects.all()
         context = {
