@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'instalacao:instalacao_list' %}">Voltar</a>
+    <h1>{{ object }}
+        <span class="pull-right">
+            <a href="{% url 'instalacao:instalacao_edit' object.pk  %}">
+                <button type="button" class="btn btn-success">
+                    <span class="fa fa-pencil"></span> Editar
+                </button>
+            </a>
+        </span>
+    </h1>
+<span class="pull-right">
+    <a href="{% url 'instalacao:instalacao_delete' object.pk  %}">
+        <button type="button" class="btn btn-danger">
+            <span class="fa fa-pencil"></span> Deletar
+        </button>
+    </a>
+</span>
+<div class="col-sm-6">
+    <table class="table table-user-information">
+
+            <tbody>
+                <tr>
+                    <th class="text-right">Nome</th>
+                    <td>{{object.nome}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Placa</th>
+                    <td>{{object.placa}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Vendedor</th>
+                    <td>{{object.vendedor}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Instalador</th>
+                    <td>{{object.instalador}}</td>
+                </tr>
+
+                <tr>
+                    <th class="text-right">Data da Solicitação</th>
+                    <td>{{object.data_pedido}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Instalado</th>
+                    <td>{{object.instalado}}</td>
+                </tr>
+                <tr>
+                    <th class="text-right">Observações</th>
+                    <td>{{object.obs}}</td>
+                </tr>
+
+            </tbody>
+    </table>
+
+</div>
+{% endblock content %}
