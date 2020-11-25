@@ -53,12 +53,13 @@
                     <table class="table-striped">
                         <thead>
                         <tr>
-                            <th>Nome</th>
                             <th>Placa</th>
+                            <th>Nome</th>
                             <th>Vendedor</th>
                             <th>Instalador</th>
                             <th>Data da Solictação</th>
                             <th>Instalado</th>
+                            <th>Vistoria</th>
 
                         </tr>
                         </thead>
@@ -73,6 +74,7 @@
                                 <td>{{object.instalador}}</td>
                                 <td>{{object.data_pedido}}</td>
                                 <td>{{object.instalado}}</td>
+                                <td>{{object.vistoria}}</td>
 
                             </tr>
                         {% endfor %}

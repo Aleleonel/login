@@ -55,9 +55,7 @@
                         <tr>
                             <th>Categoria</th>
                             <th>Prestador</th>
-<!--                            <th>Endereço</th>-->
-<!--                            <th>Bairro</th>-->
-<!--                            <th>CEP</th>-->
+                            <th>CNPJ</th>
                             <th>Cidade</th>
                             <th>Telefone</th>
                         </tr>
@@ -69,9 +67,7 @@
                                 <td>
                                     <a href="{{ object.get_absolute_url }}">{{object.prestador}}</a>
                                 </td>
-<!--                                <td>{{object.endereco}}</td>-->
-<!--                                <td>{{object.bairro}}</td>-->
-<!--                                <td>{{object.cep}}</td>-->
+                                <td>{{object.cnpj}}</td>
                                 <td>{{object.cidade}}</td>
                                 <td>{{object.telefone2}}</td>
                             </tr>
