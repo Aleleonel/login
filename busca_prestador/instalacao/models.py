@@ -1,7 +1,18 @@
 from django.db import models
 from django.urls import reverse_lazy
 
+import uuid
+import os
+
 from instaladores.models import Instaladores
+
+
+# customização do nome do arquivo
+def get_file_path(instance, filename):
+    ext = filename.split("."[-1])
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+
+    return os.path.join("photos_vistoria", filename)
 
 
 class Instalacao(models.Model):
@@ -19,6 +30,8 @@ class Instalacao(models.Model):
     placa = models.CharField('Placa', max_length=7, null=False, blank=False, unique=True)
     nome = models.CharField('Associado', max_length=30, null=False, blank=False)
     endereco = models.CharField('Endereço', max_length=60, null=False, blank=False)
+    tel01 = models.CharField('Cellular', max_length=60, null=False, blank=False)
+    tel02 = models.CharField('Residencial', max_length=60, null=True, blank=True)
     vendedor = models.CharField('Vendedor', max_length=30, null=False, blank=False, unique=True)
     instalador = models.ForeignKey(Instaladores, on_delete=models.SET_NULL, null=True, default='Não especificado')
     data_pedido = models.DateTimeField(auto_created=True)
@@ -33,6 +46,7 @@ class Instalacao(models.Model):
         default=VISTORIA_CHOICES[0][0]
     )
     obs = models.TextField(max_length=300, null=True, blank=True)
+    foto = models.FileField(upload_to=get_file_path, null=True, blank=True)
 
     class Meta:
         db_table = 'instalacao'

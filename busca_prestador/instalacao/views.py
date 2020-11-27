@@ -43,9 +43,22 @@ def instalacao_detail(request, pk):
     return render(request, template_name, context)
 
 
-def endereco_add(request):
+def instalacao_add(request):
+    # template_name = 'instalacao/foto_add.html'
     template_name = 'instalacao/instalacao_form.html'
-    return render(request, template_name)
+
+    if request.method == "POST":
+        form = InstalacaoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render(request, template_name)
+    else:
+        form = InstalacaoForm()
+        context = {
+            'form': form
+        }
+
+    return render(request, template_name, context)
 
 
 def instalacao_delete(request, pk):
