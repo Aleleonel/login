@@ -7,6 +7,7 @@ urlpatterns = [
     path('lista/', v.lista_search, name='instalacao_list'),
     path('add/', v.InstalacaoCreate.as_view(), name='instalacao_add'),
     path('<int:pk>/', v.instalacao_detail, name='instalacao_detail'),
+    # path('<int:pk>/', v.imagens_detail, name='imagens_detail'),
     path('<int:pk>/edit/', v.InstalacaoUpdate.as_view(), name='instalacao_edit'),
     path('deletar/<int:pk>/', v.instalacao_delete, name='instalacao_delete'),
 

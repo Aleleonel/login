@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'account',
     'instaladores',
     'instalacao',
+    'image',
 ]
 
 MIDDLEWARE = [

@@ -31,6 +31,7 @@ urlpatterns = [
     path('clientes/', include('clientes.urls')),
     path('instaladores/', include('instaladores.urls')),
     path('instalacao/', include('instalacao.urls')),
+    path('imagens/', include('image.urls')),
 
     path('account/', include('account.urls')),
     path('account/', include('django.contrib.auth.urls')),

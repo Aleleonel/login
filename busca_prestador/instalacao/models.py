@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 from django.urls import reverse_lazy
 
@@ -5,14 +7,6 @@ import uuid
 import os
 
 from instaladores.models import Instaladores
-
-
-# customização do nome do arquivo
-def get_file_path(instance, filename):
-    ext = filename.split("."[-1])
-    filename = "%s.%s" % (uuid.uuid4(), ext)
-
-    return os.path.join("photos_vistoria", filename)
 
 
 class Instalacao(models.Model):
@@ -34,7 +28,7 @@ class Instalacao(models.Model):
     tel02 = models.CharField('Residencial', max_length=60, null=True, blank=True)
     vendedor = models.CharField('Vendedor', max_length=30, null=False, blank=False, unique=True)
     instalador = models.ForeignKey(Instaladores, on_delete=models.SET_NULL, null=True, default='Não especificado')
-    data_pedido = models.DateTimeField(auto_created=True)
+    data_pedido = models.DateTimeField(default=datetime.now, blank=True)
     instalado = models.CharField(
         'instalado', max_length=8,
         null=True, choices=INSTALADO_CHOICES,
@@ -46,14 +40,17 @@ class Instalacao(models.Model):
         default=VISTORIA_CHOICES[0][0]
     )
     obs = models.TextField(max_length=300, null=True, blank=True)
-    foto = models.FileField(upload_to=get_file_path, null=True, blank=True)
 
     class Meta:
         db_table = 'instalacao'
-        # ordering = ["-id"]
+        ordering = ["-data_pedido"]
 
     def __str__(self):
         return self.nome
 
     def get_absolute_url(self):
         return reverse_lazy('instalacao:instalacao_detail', kwargs={'pk': self.pk})
+
+
+
+

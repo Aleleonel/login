@@ -55,6 +55,13 @@
                     <th class="text-right">Observações</th>
                     <td>{{object.obs}}</td>
                 </tr>
+                 {% if imagens %}
+                    {% for image in imagens %}
+                        <td>
+                            <a href="{{ object.get_abs_url }}">{{image.foto.url}}</a>
+                        </td>
+                    {% endfor %}
+                {% endif %}
 
             </tbody>
     </table>
